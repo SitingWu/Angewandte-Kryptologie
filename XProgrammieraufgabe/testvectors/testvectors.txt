@@ -1,0 +1,39 @@
+Testing individual round functions ....
+
+Testing Theta with:    000102030405060708090a0b
+Result after Theta:    06070407000114151a191a1b
+
+Testing Theta^-1 with: 000102030405060708090a0b
+Result after Theta^-1: 020300f6f1f0080906f0f3f2
+
+Testing Pi with:       000102030405060708090a0b
+Result after Pi:       000a0803010b060402090705
+
+Testing Gamma with:    000102030405060708090a0b
+Result after Gamma:    637c777bf26b6fc53001672b
+
+
+Testing round keys ....
+
+Testing for key:          0123456789abcdef10203040
+Roundkey for round  1 is: 072af260a359ad4c498d7c09
+Roundkey for round  2 is: 132baf7388f6dec4bf53b8b6
+Roundkey for round  3 is: 77654204edb4da290b8991bd
+Roundkey for round  4 is: e61fe5e2f25138db5ab14ae7
+Roundkey for round  5 is: 108b2df2797ccaa2267be8c1
+Roundkey for round  6 is: cbf30c398a70f3285688c097
+Roundkey for round  7 is: f17bc8c8f1b83bd9eeb31979
+Roundkey for round  8 is: 3ecda5f63c1dcde5f37efc8a
+Roundkey for round  9 is: b8b3564e8f4b836ab8fd9632
+Roundkey for round 10 is: 4490020a1f498975f174e3c3
+
+
+Testing one complete round ....
+
+Round key 1:           0123456789abcdef10203040
+Plaintext:             000102030405060708090a0b
+
+Result after Theta:    06070407000114151a191a1b
+Result after Gamma:    6fc5f2c5637cfa59a2d4a2af
+Result after Pi:       6fa2a2c5c5affa63f2d4597c
+Result after add key:  688850a566f6572fbb592575
