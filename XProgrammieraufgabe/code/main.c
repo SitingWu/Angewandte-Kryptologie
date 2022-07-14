@@ -25,7 +25,16 @@
 
 #define ERRMSG "\n~~~~~~~~~~~~~~~.++.~~~~~~~~~~~~~~~\nGroß ist seines Laufes Schnelle;\nAber ach, die Kammerschwelle\nIst ihm äußerst hinderlich.\nkurz gesagt: das stimmt noch nicht\n(frei nach Willhelm Busch)\n~~~~~~~~~~~~~~~.++.~~~~~~~~~~~~~~~\n" ///< A nice error message by Markus Wamser
 
-#define uint8_t sbox[256]=
+
+
+#include "abgabe.c" ///< ja - das ist sehr haesslich, aber fuer moodle noetig!
+
+/**
+ *  The main function, demonstrating the calling of our functions
+ */
+#define n 0x11B  //Koefizienten für Rijndael_Darstellung
+
+#define uint8_t sbox[256] =
                 {
                     0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76, 
                     0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0, 
@@ -44,13 +53,9 @@
                     0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf, 
                     0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16 
                 }
-                
 
-#include "abgabe.c" ///< ja - das ist sehr haesslich, aber fuer moodle noetig!
 
-/**
- *  The main function, demonstrating the calling of our functions
- */
+
 int main(int argc, char** argv) {
 
     
