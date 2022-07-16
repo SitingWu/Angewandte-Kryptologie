@@ -117,9 +117,9 @@ uint8_t bksq_encrypt(uint8_t const * plain, uint8_t * cyphertext, uint8_t const 
     //key addition
     for(int i = 0; i<12 ;i++)
     {
-        cyphertext[i]=cyphertext[i]^key[i];
+       cyphertext[i]=cyphertext[i]^key[i];
     }
-    
+   
     return BKSQ_ENCRYPT_OK;
 }
 
