@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/bksq.dir/main.c.o  -o bksq  libbksq_src.a 

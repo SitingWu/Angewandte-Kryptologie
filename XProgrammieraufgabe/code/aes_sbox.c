@@ -27,16 +27,50 @@ void initialize_aes_sbox(uint8_t sbox[256]) {
 	sbox[0] = 0x63;
 }
 
-//ace_sbox_generator
+// //ace_sbox_generator
+// int main()
+// {
+//     uint8_t sbox[256];
+//     initialize_aes_sbox(sbox);
+//     for (int i=0;i<256;i++)
+//     {
+// 		if(i%4==0&&i!=0)
+// 		printf(", ");	
+// 		if(i%16==0 && i!=0)
+// 		printf("\n");
+// 		if(i%4==0)
+// 		printf("0x");
+// 	 	printf("%02x",sbox[i]);
+		
+//    // printf("0x%02x, ",sbox[i-1]);
+
+//     }
+//     return 0;
+// }
+
 int main()
 {
-    uint8_t sbox[256];
-    initialize_aes_sbox(sbox);
-    for (int i=1;i<=256;i++)
+	uint32_t tmp[3]={
+		0x637c777b, 0xf26b6fc5, 0x3001672b
+	};
+	uint8_t *sub;
+		sub =tmp;
+    
+	uint32_t *two;
+		two=sub;
+		
+    for (int i=0;i<8;i++)
     {
-    printf("0x%02x, ",sbox[i-1]);
-    if(i%16==0 && i!=0)
-    printf("\n");
-    }
+	 	printf("%02x ",sub[i]);
+		
+   // printf("0x%02x, ",sbox[i-1]);
+
+    }	printf(" \n ");
+	for(int j=3 ;j>0 ;j--)
+	{
+		printf("0x%02x ",two[3-j] );
+	}
+
+	
     return 0;
 }

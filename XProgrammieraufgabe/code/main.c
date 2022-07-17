@@ -32,7 +32,9 @@
 /**
  *  The main function, demonstrating the calling of our functions
  */
-#define n 0x11B  //Koefizienten für Rijndael_Darstellung
+// #define n 0x11B  //Koefizienten für Rijndael_Darstellung
+
+
 
 
 int main(int argc, char** argv) {

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbksq_src.a  CMakeFiles/bksq_src.dir/bksq.c.o
+/usr/bin/ranlib libbksq_src.a

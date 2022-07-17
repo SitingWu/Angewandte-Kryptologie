@@ -1,2 +1,4 @@
-gcc -o main main.c abgabe.c
+gcc  abgabe.c main.c -o bksq
+
+
 

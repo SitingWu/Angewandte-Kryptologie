@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rose0901/Dokumente/Angewande Kryptologie/Angewandte-Kryptologie/XProgrammieraufgabe/code/bksq/bksq.c
+bksq.h
+/home/rose0901/Dokumente/Angewande Kryptologie/Angewandte-Kryptologie/XProgrammieraufgabe/code/bksq/bksq.h
+stdint.h
+-
+
+/home/rose0901/Dokumente/Angewande Kryptologie/Angewandte-Kryptologie/XProgrammieraufgabe/code/bksq/bksq.h
+stdint.h
+-
+
+/home/rose0901/Dokumente/Angewande Kryptologie/Angewandte-Kryptologie/XProgrammieraufgabe/code/bksq/main.c
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+string.h
+-
+bksq.c
+/home/rose0901/Dokumente/Angewande Kryptologie/Angewandte-Kryptologie/XProgrammieraufgabe/code/bksq/bksq.c
+

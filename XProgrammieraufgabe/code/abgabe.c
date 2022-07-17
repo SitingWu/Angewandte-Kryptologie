@@ -1,8 +1,9 @@
 /** \file abgabe.c */
 
 #include <stdint.h>
-#include <stdio.h>
+ //#include <stdio.h>
 // Status Codes
+#include "bksq.h"
 
 #define BKSQ_ENCRYPT_OK 0 ///< Return value: BKSQ Encryption OK!
 #define CTR_OK 0 ///< Return value: Counter Mode OK!
@@ -35,7 +36,7 @@ typedef struct {
 } CONTEXT;
     
 //lookup tables
-const uint8_t sbox[256]=
+const static uint8_t sbox[256]=
             {
                 0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76, 
                 0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0, 
@@ -55,7 +56,7 @@ const uint8_t sbox[256]=
                 0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16 
             };
 
-const uint8_t t_mux_2[256]={
+const static uint8_t t_mux_2[256]={
             0x00, 0x02, 0x04, 0x06, 0x08, 0x0a, 0x0c, 0x0e, 0x10, 0x12, 0x14, 0x16, 0x18, 0x1a, 0x1c, 0x1e, 
             0x20, 0x22, 0x24, 0x26, 0x28, 0x2a, 0x2c, 0x2e, 0x30, 0x32, 0x34, 0x36, 0x38, 0x3a, 0x3c, 0x3e, 
             0x40, 0x42, 0x44, 0x46, 0x48, 0x4a, 0x4c, 0x4e, 0x50, 0x52, 0x54, 0x56, 0x58, 0x5a, 0x5c, 0x5e, 
@@ -74,7 +75,8 @@ const uint8_t t_mux_2[256]={
             0xe0, 0xe2, 0xe4, 0xe6, 0xe8, 0xea, 0xec, 0xee, 0xf0, 0xf2, 0xf4, 0xf6, 0xf8, 0xfa, 0xfc, 0xfe
         };
    
-const uint8_t fi[12]={3,2,2,2,3,2,2,2,3};
+const static uint8_t fi[12]={3,2,2,2,3,2,2,2,3};
+
 
 
 /** The |bksq_encrypt| ist the main method to encrypt a single block of data with the BKSQ algorithm. 
@@ -96,28 +98,28 @@ uint8_t bksq_encrypt(uint8_t const * plain, uint8_t * cyphertext, uint8_t const 
                 for(int j=0;j<3;j++)
                 {   //{3,2,2,  2,3,2  ,2,2,3}
                     //Multipy 2
-                    mux_2[j]=t_mux_2[plain[i+j*4]];
+                    mux_2[j]=t_mux_2[*(plain+(i+j*4))];
                     //Mltipy 3 :
                     if (fi[k*4+j]==3)
                     // 3x=2x
-                    mux_2[j]=mux_2[j]^plain[i+j*4];
+                    mux_2[j]=mux_2[j]^*(plain+(i+j*4));
                 
                 }
                 //werter Zuweisung
-                cyphertext[i+k*4]=mux_2[0]^mux_2[1]^mux_2[2];
+                *(cyphertext+i+k*4)=mux_2[0]^mux_2[1]^mux_2[2];
             }
     }
     //S_Box
     for (int i =0; i<12;i++)
     {    
-        uint8_t *tmp=cyphertext+i;
-        *tmp=sbox[*tmp];
-        cyphertext[i]= *tmp;
+        uint8_t tmp=*(cyphertext+i);
+        tmp=sbox[tmp];
+        *(cyphertext+i)= tmp;
     }
     //key addition
     for(int i = 0; i<12 ;i++)
     {
-       cyphertext[i]=cyphertext[i]^key[i];
+       cyphertext[i]=cyphertext[i]^*(key+i);
     }
    
     return BKSQ_ENCRYPT_OK;
